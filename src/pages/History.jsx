@@ -6,7 +6,7 @@ import cult from "../assets/sermon.jfif"
 export default function History() {
     return(
         <DefaultTemplate>
-            <div className="w-11/12 sm:w-8/12 flex-1">
+            <div className="w-11/12 sm:w-8/12">
 
                 <section className="flex flex-col items-center justify-center text-zinc-300 space-y-3 p-10">
                     <p>
