@@ -4,8 +4,15 @@ import Navlink from "./NavLink";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { useLocation } from "react-router-dom";
+
 
 export default function Navbar() {
+    const location = useLocation()
+    const init = location.pathname === '/'
+    const history = location.pathname === '/historia'
+    const jugability = location.pathname === '/jugabilidad'
+
     const tl = useRef()
     const menu = useRef()
     
@@ -30,9 +37,9 @@ export default function Navbar() {
                 <CrownIcon/>
             </div>
             <div className="hidden flex-1 sm:flex flex-row items-center justify-center gap-5">
-                <Navlink to={'/'}>Inicio</Navlink>
-                <Navlink to={'/historia'}>Historia</Navlink>
-                <Navlink to={'/jugabilidad'}>Jugabilidad</Navlink>
+                <Navlink properties={init&&'bg-red-500 rounded-full p-3 hover:text-neutral-950'} to={'/'}>Inicio</Navlink>
+                <Navlink properties={history&&'bg-red-500 rounded-full p-3 hover:text-neutral-950'}  to={'/historia'}>Historia</Navlink>
+                <Navlink properties={jugability&&'bg-red-500 rounded-full p-3 hover:text-neutral-950'}  to={'/jugabilidad'}>Jugabilidad</Navlink>
             </div>
             <div className="flex-1 sm:hidden"></div>
 
@@ -45,9 +52,9 @@ export default function Navbar() {
                 
                 {/*Drop Menu*/}
                 <div className="drop-menu absolute top-15 right-2 flex flex-col backdrop-blur-md text-black dark:bg-neutral-900/60 p-10 border-4 border-double rounded-2xl items-center justify-center gap-5">
-                    <Navlink to={'/'}>Inicio</Navlink>
-                    <Navlink to={'/historia'}>Historia</Navlink>
-                    <Navlink to={'/jugabilidad'}>Jugabilidad</Navlink>
+                    <Navlink properties={init&&'bg-red-500 rounded-full p-3 hover:text-neutral-950'} to={'/'}>Inicio</Navlink>
+                    <Navlink properties={history&&'bg-red-500 rounded-full p-3 hover:text-neutral-950'} to={'/historia'}>Historia</Navlink>
+                    <Navlink properties={jugability&&'bg-red-500 rounded-full p-3 hover:text-neutral-950'} to={'/jugabilidad'}>Jugabilidad</Navlink>
                 </div>
             </div>
         </nav>
